@@ -25,7 +25,6 @@ class classMySec {
 ########## Base variables ##########
 # SET VAR
 
-$argv = array_map('c_sec_userinput', $argv);
 $_GET = array_map('c_sec_userinput', $_GET);
 $_POST = array_map('c_sec_userinput', $_POST);
 $_COOKIE = array_map('c_sec_userinput', $_COOKIE);
@@ -55,6 +54,9 @@ function c_sec_safe($str){
 	
   if(preg_match('/(<\s*SCRIPT|SCRIPT\s*>)/i', $decode)) return;
   if(preg_match('/(<\s*IFRAME|IFRAME\s*>)/i', $decode)) return;
+  if(preg_match('/(<\s*STYLE|STYLE\s*>)/i', $decode)) return;
+  if(preg_match('/(<\s*A|A\s*>)/i', $decode)) return;
+  if(preg_match('/(<\s*IMG|IMG\s*>)/i', $decode)) return;
   if(preg_match('/(UNION|SELECT|CONCAT|DELETE|INSERT|DROP|FROM|WHERE) /i', $decode)) return;
   if(preg_match('/(UNION|SELECT|CONCAT|DELETE|INSERT|DROP|FROM|WHERE)\(/i', $decode)) return;
   if(preg_match('/\/\*/i', $decode)) return;

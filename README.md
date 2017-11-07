@@ -1,7 +1,7 @@
 <h1>class.security.php</h1>
 <pre>
 ===========
-filter PHP input  ($_GET $_POST $_COOKIE $_REQUEST $argv)
+filter PHP input  ($_GET $_POST $_COOKIE $_REQUEST)
 ===========
 
 
